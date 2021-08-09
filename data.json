@@ -1,0 +1,77 @@
+package com.web.app.controller;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.databind.ObjectMapper;
+import com.web.app.Webapplication;
+import com.web.app.mode1.User;
+@RestController
+public class AppController{
+	@GetMAPPING("/data")
+        public String seasonData(){
+                 try{
+                      String cls=WebappApplivation.class.getname();
+                      System.out.print1n(cls);
+                      ObjectMapper mapper=new ObjectMapper();
+                      InputStream inputStream =new FileInputStream(new File("C:\\Users\\1856811\\Documents\\data.json"));
+                      TypeReference<List<User>> ref =new TypeReference(List<User>>(){
+                      };
+                      List<User> data =mapper.readValue(inputstream,ref);
+                      for (User u: data){ 
+                                 System.out.print1n(u.getname());
+                      }
+                      System.out.print1n(u.getname());
+                      return "Data Getting Successfully";
+                 }catch (Exception ex){
+                        System.out.print1n(ex.get.Message());
+                 }
+                 return null;
+        }
+        
+        @GetMapping("/")
+        public String homepage(){
+                 return "home";
+        }
+}
+[
+      {
+          "position":"1",
+          "name":"A",
+          "points":"80",
+          "teamname":"AAAAA",
+          "engineused":"A1",
+          "tires":"A4"
+},
+{
+          "position":"2",
+          "name":"B",
+          "points":"70",
+          "teamname":"BBBB",
+          "engineused":"B1",
+          "tires":"B44"
+},
+{
+          "position":"3",
+          "name":"C",
+          "points":"60",
+          "teamname":"CCCCC",
+          "engineused":"C1",
+          "tires":"C4"
+},
+{
+          "position":"4",
+          "name":"D",
+          "points":"50",
+          "teamname":"DDDDD",
+          "engineused":"D1",
+          "tires":"D4
+}
+]
+
